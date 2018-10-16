@@ -15,52 +15,56 @@ Finally a Fast Fourier Transform (FFT) was applied to some of these signals prod
 Summary features
 ================
 
+Averages were calculated based on the mean of all derived signal features relating to Mean or Std Deviation for each activity and subject.
+
 column number,column name,Description,Units
-1,tBodyAcc_mean_X,Mean of all Mean values of raw 3 axial body acceleration signals in X direction measured in the time domain,g/s^2
-2,tBodyAcc_mean_Y,Mean of all Mean values of raw 3 axial body acceleration signals in XYdirection measured in the time domain,g/s^2
-3,tBodyAcc_mean_Z,Mean of all Mean values of raw 3 axial body acceleration signals in Z direction measured in the time domain,g/s^2
-4,tBodyAcc_std_X,Mean of all Std deviation values of raw 3 axial body acceleration signals in X direction measured in the time domain,g/s^2
-5,tBodyAcc_std_Y,Mean of all Std deviation values of raw 3 axial body acceleration signals in Y direction measured in the time domain,g/s^2
-6,tBodyAcc_std_Z,Mean of all Std deviation values of raw 3 axial body acceleration signals in Z direction measured in the time domain,g/s^2
-7,tGravityAcc_mean_X,Mean of all Mean values of raw 3 axial body acceleration signals in X direction measured in the time domain,g/s^2
-8,tGravityAcc_mean_Y,Mean of all Mean values of raw 3 axial body acceleration signals in Y direction measured in the time domain,g/s^2
-9,tGravityAcc_mean_Z,Mean of all Mean values of raw 3 axial body acceleration signals in Z direction measured in the time domain,g/s^2
-10,tGravityAcc_std_X,Mean of all Std deviation values of raw 3 axial body acceleration signals in X direction measured in the time domain,g/s^2
-11,tGravityAcc_std_Y,Mean of all Std deviation values of raw 3 axial body acceleration signals in Y direction  measured in the time domain,g/s^2
-12,tGravityAcc_std_Z,Mean of all Std deviation values of raw 3 axial body acceleration signals in Z direction  measured in the time domain,g/s^2
-13,tBodyAccJerk_mean_X,Mean of all Mean values of derived Acceleration Jerk in X direction,g/s^3
-14,tBodyAccJerk_mean_Y,Mean of all Mean values of derived Acceleration Jerk in Y direction,g/s^3
-15,tBodyAccJerk_mean_Z,Mean of all Mean values of derived Acceleration Jerk in Z direction,g/s^3
-16,tBodyAccJerk_std_X,Mean of all Std deviation values of derived Acceleration Jerk in X direction,g/s^3
-17,tBodyAccJerk_std_Y,Mean of all Std deviation values of derived Acceleration Jerk in Y direction,g/s^3
-18,tBodyAccJerk_std_Z,Mean of all Std deviation values of derived Acceleration Jerk in Z direction,g/s^3
-19,tBodyGyro_mean_X,Mean of all Mean values of derived Angular Velocity Jerk in X direction,rad/s^2
-20,tBodyGyro_mean_Y,Mean of all Mean values of derived Angular Velocity Jerk in Y direction,rad/s^2
-21,tBodyGyro_mean_Z,Mean of all Mean values of derived Angular Velocity Jerk Z direction,rad/s^2
-22,tBodyGyro_std_X,Mean of all Std deviation values of derived Angular Velocity Jerk in X direction,rad/s^2
-23,tBodyGyro_std_Y,Mean of all Std deviation values of derived Angular Velocity Jerk in Y direction,rad/s^2
-24,tBodyGyro_std_Z,Mean of all Std deviation values of derived Angular Velocity Jerk in Z direction,rad/s^2
-25,tBodyGyroJerk_mean_X,Mean of all Means of magnitude of 3 direction gyroscope data (calculated using Euclidean normal) in X direction,rad/s^3
-26,tBodyGyroJerk_mean_Y,Mean of all Means of magnitude of 3 direction gyroscope data (calculated using Euclidean normal) in Y direction,rad/s^3
-27,tBodyGyroJerk_mean_Z,Mean of all Means of magnitude of 3 direction gyroscope data (calculated using Euclidean normal) in Z direction,rad/s^3
-28,tBodyGyroJerk_std_X,Mean of all Std deviations of magnitude of 3 direction gyroscope data (calculated using Euclidean normal) in X direction,rad/s^3
-29,tBodyGyroJerk_std_Y,Mean of all Std deviations of magnitude of 3 direction gyroscope data (calculated using Euclidean normal) in Y direction,rad/s^3
-30,tBodyGyroJerk_std_Z,Mean of all Std deviations of magnitude of 3 direction gyroscope data (calculated using Euclidean normal) in Z direction,rad/s^3
-31,fBodyAcc_mean_X,Mean of Mean of FFTs of accelerometer signal measured in X direction,
-32,fBodyAcc_mean_Y,Mean of Mean of FFTs of accelerometer signal measured in Y direction,
-33,fBodyAcc_mean_Z,Mean of Mean of FFTs of accelerometer signal measured in Z direction,
-34,fBodyAcc_std_X,Mean of Std deviations of FFT of accelerometer signal measured in X direction,
-35,fBodyAcc_std_Y,Mean of Std deviations of FFT of accelerometer signal measured in Y direction,
-36,fBodyAcc_std_Z,Mean of Std deviations of FFT of accelerometer signal measured in Z direction,
-37,fBodyAccJerk_mean_X,Mean of Mean of FFTs of accelerometer jerk measured in X direction,
-38,fBodyAccJerk_mean_Y,Mean of Mean of FFTs of accelerometer jerk measured in Y direction,
-39,fBodyAccJerk_mean_Z,Mean of Mean of FFTs of accelerometer jerk measured in Z direction,
-40,fBodyAccJerk_std_X,Mean of Std deviations of FFT of accelerometer jerk measured in X direction,
-41,fBodyAccJerk_std_Y,Mean of Std deviations of FFT of accelerometer jerk measured in Y direction,
-42,fBodyAccJerk_std_Z,Mean of Std deviations of FFT of accelerometer jerk measured in Z direction,
-43,fBodyGyro_mean_X,Mean of Means of FFT of gyroscope data measured in X direction,
-44,fBodyGyro_mean_Y,Mean of Means of FFT of gyroscope data measured in Y direction,
-45,fBodyGyro_mean_Z,Mean of Means of FFT of gyroscope data measured in Z direction,
-46,fBodyGyro_std_X,Mean of Std Deviations of FFT of gyroscope data measured in X direction,
-47,fBodyGyro_std_Y,Mean of Std Deviations of FFT of gyroscope data measured in Y direction,
-48,fBodyGyro_std_Z,Mean of Std Deviations of FFT of gyroscope data measured in Z direction,
+1,activity,Type of Activity performed
+2,subject,Number of subject undertaking the activity
+3,tBodyAcc_mean_X,Mean of all Mean values of raw 3 axial body acceleration signals in X direction measured in the time domain,g/s^2
+4,tBodyAcc_mean_Y,Mean of all Mean values of raw 3 axial body acceleration signals in XYdirection measured in the time domain,g/s^2
+5,tBodyAcc_mean_Z,Mean of all Mean values of raw 3 axial body acceleration signals in Z direction measured in the time domain,g/s^2
+6,tBodyAcc_std_X,Mean of all Std deviation values of raw 3 axial body acceleration signals in X direction measured in the time domain,g/s^2
+7,tBodyAcc_std_Y,Mean of all Std deviation values of raw 3 axial body acceleration signals in Y direction measured in the time domain,g/s^2
+8,tBodyAcc_std_Z,Mean of all Std deviation values of raw 3 axial body acceleration signals in Z direction measured in the time domain,g/s^2
+9,tGravityAcc_mean_X,Mean of all Mean values of raw 3 axial body acceleration signals in X direction measured in the time domain,g/s^2
+10,tGravityAcc_mean_Y,Mean of all Mean values of raw 3 axial body acceleration signals in Y direction measured in the time domain,g/s^2
+11,tGravityAcc_mean_Z,Mean of all Mean values of raw 3 axial body acceleration signals in Z direction measured in the time domain,g/s^2
+12,tGravityAcc_std_X,Mean of all Std deviation values of raw 3 axial body acceleration signals in X direction measured in the time domain,g/s^2
+13,tGravityAcc_std_Y,Mean of all Std deviation values of raw 3 axial body acceleration signals in Y direction  measured in the time domain,g/s^2
+14,tGravityAcc_std_Z,Mean of all Std deviation values of raw 3 axial body acceleration signals in Z direction  measured in the time domain,g/s^2
+15,tBodyAccJerk_mean_X,Mean of all Mean values of derived Acceleration Jerk in X direction,g/s^3
+16,tBodyAccJerk_mean_Y,Mean of all Mean values of derived Acceleration Jerk in Y direction,g/s^3
+17,tBodyAccJerk_mean_Z,Mean of all Mean values of derived Acceleration Jerk in Z direction,g/s^3
+18,tBodyAccJerk_std_X,Mean of all Std deviation values of derived Acceleration Jerk in X direction,g/s^3
+19,tBodyAccJerk_std_Y,Mean of all Std deviation values of derived Acceleration Jerk in Y direction,g/s^3
+20,tBodyAccJerk_std_Z,Mean of all Std deviation values of derived Acceleration Jerk in Z direction,g/s^3
+21,tBodyGyro_mean_X,Mean of all Mean values of derived Angular Velocity Jerk in X direction,rad/s^2
+22,tBodyGyro_mean_Y,Mean of all Mean values of derived Angular Velocity Jerk in Y direction,rad/s^2
+23,tBodyGyro_mean_Z,Mean of all Mean values of derived Angular Velocity Jerk Z direction,rad/s^2
+24,tBodyGyro_std_X,Mean of all Std deviation values of derived Angular Velocity Jerk in X direction,rad/s^2
+25,tBodyGyro_std_Y,Mean of all Std deviation values of derived Angular Velocity Jerk in Y direction,rad/s^2
+26,tBodyGyro_std_Z,Mean of all Std deviation values of derived Angular Velocity Jerk in Z direction,rad/s^2
+27,tBodyGyroJerk_mean_X,Mean of all Means of magnitude of 3 direction gyroscope data (calculated using Euclidean normal) in X direction,rad/s^3
+28,tBodyGyroJerk_mean_Y,Mean of all Means of magnitude of 3 direction gyroscope data (calculated using Euclidean normal) in Y direction,rad/s^3
+29,tBodyGyroJerk_mean_Z,Mean of all Means of magnitude of 3 direction gyroscope data (calculated using Euclidean normal) in Z direction,rad/s^3
+30,tBodyGyroJerk_std_X,Mean of all Std deviations of magnitude of 3 direction gyroscope data (calculated using Euclidean normal) in X direction,rad/s^3
+31,tBodyGyroJerk_std_Y,Mean of all Std deviations of magnitude of 3 direction gyroscope data (calculated using Euclidean normal) in Y direction,rad/s^3
+32,tBodyGyroJerk_std_Z,Mean of all Std deviations of magnitude of 3 direction gyroscope data (calculated using Euclidean normal) in Z direction,rad/s^3
+33,fBodyAcc_mean_X,Mean of Mean of FFTs of accelerometer signal measured in X direction,
+34,fBodyAcc_mean_Y,Mean of Mean of FFTs of accelerometer signal measured in Y direction,
+35,fBodyAcc_mean_Z,Mean of Mean of FFTs of accelerometer signal measured in Z direction,
+36,fBodyAcc_std_X,Mean of Std deviations of FFT of accelerometer signal measured in X direction,
+37,fBodyAcc_std_Y,Mean of Std deviations of FFT of accelerometer signal measured in Y direction,
+38,fBodyAcc_std_Z,Mean of Std deviations of FFT of accelerometer signal measured in Z direction,
+39,fBodyAccJerk_mean_X,Mean of Mean of FFTs of accelerometer jerk measured in X direction,
+40,fBodyAccJerk_mean_Y,Mean of Mean of FFTs of accelerometer jerk measured in Y direction,
+41,fBodyAccJerk_mean_Z,Mean of Mean of FFTs of accelerometer jerk measured in Z direction,
+42,fBodyAccJerk_std_X,Mean of Std deviations of FFT of accelerometer jerk measured in X direction,
+43,fBodyAccJerk_std_Y,Mean of Std deviations of FFT of accelerometer jerk measured in Y direction,
+44,fBodyAccJerk_std_Z,Mean of Std deviations of FFT of accelerometer jerk measured in Z direction,
+45,fBodyGyro_mean_X,Mean of Means of FFT of gyroscope data measured in X direction,
+46,fBodyGyro_mean_Y,Mean of Means of FFT of gyroscope data measured in Y direction,
+47,fBodyGyro_mean_Z,Mean of Means of FFT of gyroscope data measured in Z direction,
+48,fBodyGyro_std_X,Mean of Std Deviations of FFT of gyroscope data measured in X direction,
+49,fBodyGyro_std_Y,Mean of Std Deviations of FFT of gyroscope data measured in Y direction,
+50,fBodyGyro_std_Z,Mean of Std Deviations of FFT of gyroscope data measured in Z direction,

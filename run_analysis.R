@@ -2,6 +2,7 @@ run_analysis <- function () {
     
     library(data.table)
     library(dplyr)
+    library(stringr)
     
     
     # Set the working directory to be a folder containing a Data/UCI Har Dataset subdirectory.
@@ -16,6 +17,8 @@ run_analysis <- function () {
     testlablocn<-paste(wd,"/Data/UCI HAR Dataset/test","/y_test.txt",sep="")
     features_locn<-paste(wd,"/Data/UCI HAR Dataset","/features.txt",sep="")
     activitylabloc<-paste(wd,"/Data/UCI HAR Dataset","/activity_labels.txt",sep="")
+    subjecttestlocn<-paste(wd,"/Data/UCI HAR Dataset/test","/subject_test.txt",sep="")
+    subjecttrainlocn<-paste(wd, "/Data/UCI HAR Dataset/train","/subject_train.txt",sep="")
     
     
     # Read files into memory
@@ -25,12 +28,14 @@ run_analysis <- function () {
     testlabels<-read.table(testlablocn,header=FALSE,stringsAsFactors = FALSE)
     featuresdf<-read.delim(features_locn,header=FALSE,stringsAsFactors = FALSE)
     activity_labels<-read.table(activitylabloc,header=FALSE,stringsAsFactors = FALSE)
-
+    subject_testlabels<-read.table(subjecttestlocn,header=FALSE,stringsAsFactors = FALSE)
+    subject_trainlabels<-read.table(subjecttrainlocn,header=FALSE,stringsAsFactors = FALSE)
     
     
-    #merge the datasets
+    #Add columns that identify the activity and subject.
     merged_data<-rbind(trainset,testset)
-    activities<-inner_join(rbind(trainlabels,testlabels),activity_labels,by="V1")   
+    activities<-rbind(trainlabels,testlabels)
+    subjects<-rbind(subject_trainlabels,subject_testlabels)
     
     
     #Extract dataset column idenfiers from the Features textfile and remove brackets
@@ -46,11 +51,25 @@ run_analysis <- function () {
     #Filter out only the columns that relate to mean or standard deviation
     merged_data<-merged_data[,col_list]
     
-    #Split the data frame based on the activities 
-    split_data<-split(merged_data,activities$V2)
+    #Add columns to identify the activity and subject
+    merged_data$subjects<-subjects[[1]]
+    merged_data$activity <- activities[[1]]
     
+    
+    #Split the data frame based on the activities, and subjects.  The factor features (activity, subject) within the table are left as numeric so their values can be retained.
+    split_data<-split(merged_data,list(as.factor(merged_data$activity),as.factor(merged_data$subjects)))
+    
+    
+    #Apply the averaging
     splitresults<-simplify2array(lapply(split_data,function (x){apply(x,2,"mean")}))
     
-    ## Transpose the array
-    rtn<-data.frame(aperm(splitresults))
+    ## Transpose and build the output array
+    splitresults<-data.frame(aperm(splitresults))
+    
+    # Replace activity number with text label
+    splitresults$activity<-as.factor(inner_join(x=data.frame(V1=splitresults$activity),activity_labels,by="V1")$V2)
+    
+    #Reorder dataframe so the factors are in the first two columns
+    rtn<-cbind(cbind(activity=as.character(splitresults$activity),subject=splitresults$subjects),splitresults[,1:48])
+    
 }
